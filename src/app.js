@@ -11,6 +11,9 @@ const publicDirectoryPath=path.join(__dirname,'../public')
 const viewpath=path.join(__dirname,'../templates/views')
 const partialpath=path.join(__dirname,'../templates/partial')
 
+//for heroku we use port
+const port=process.env.PORT || 3000
+
 app.set('view engine', 'hbs')
 app.set('views',viewpath)
 hbs.registerPartials(partialpath)
@@ -104,7 +107,7 @@ geocode(req.query.address, (error,{ latitude,longitude,location} = {}) => {
   })
 })
 })
-app.listen(3000,() => {
-    console.log('3000 p listen kr rha hai')
+app.listen(port,() => {
+    console.log(port +'p listen kr rha hai')
 })
 
